@@ -1,0 +1,20 @@
+
+
+<div>   
+    <mat-table [dataSource]="dataSource">
+        <ng-contatiner matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+            <mat-cell *matCellDef="let weather of dataSource">{{weather.id}}></mat-cell>
+        </ng-contatiner>
+
+        <ng-contatiner matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let weather of dataSource">{{weather.name}}></mat-cell>
+        </ng-contatiner>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
+        
+        <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+
+    </mat-table>
+</div>

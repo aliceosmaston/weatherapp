@@ -1,0 +1,34 @@
+
+<div>
+    <h3>Search the table below</h3>
+
+    <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applySearch($event)" placeholder="Start typing here...">
+    </mat-form-field>
+    
+
+    <mat-table  [dataSource]="dataSource" matSort matSortActive="name" matSortDirection ="asc" matSortDisableClear>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header >Name</mat-header-cell>
+            <mat-cell *matCellDef="let user of dataSource">{{user.name}}</mat-cell>
+        </ng-container> 
+       
+        <ng-container matColumnDef="username">
+            <mat-header-cell *matHeaderCellDef mat-sort-header >Username</mat-header-cell>
+            <mat-cell class="username-cell"*matCellDef="let user of dataSource">{{user.username}}</mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header >Email</mat-header-cell>
+            <mat-cell class="username-cell"*matCellDef="let user of dataSource">{{user.email}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
+        
+        <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10]" ></mat-paginator>
+</div>
+
